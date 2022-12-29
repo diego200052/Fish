@@ -19,25 +19,35 @@ def train_valid_split(all_images_folder=None, all_annots_csv=None, split=0.15):
     #print(train_df)
     #print(valid_df)
 
-    os.makedirs('../input/train_images', exist_ok=True)
-    os.makedirs('../input/valid_images', exist_ok=True)
+    os.makedirs('../input/train', exist_ok=True)
+    os.makedirs('../input/test', exist_ok=True)
 
     # Copy training images.
     train_images = train_df['file_name'].tolist()
     for image in train_images:
         shutil.copy(
             f"../input/images/{image}", 
-            f"../input/train_images/{image}"
+            f"../input/train/{image}"
         )
-    train_df.to_csv('../input/train.csv', index=False)
+        wE = image[:-4]
+        shutil.copy(
+            f"./Annotations/{wE}.xml",
+            f"../input/train/{wE}.xml",
+        )
+    train_df.to_csv('../input/train_labels.csv', index=False)
 
     # Copy validation images.
     valid_images = valid_df['file_name'].tolist()
     for image in valid_images:
         shutil.copy(
             f"../input/images/{image}", 
-            f"../input/valid_images/{image}"
+            f"../input/test/{image}"
         )
-    valid_df.to_csv('../input/valid.csv', index=False)
+        wE = image[:-4]
+        shutil.copy(
+            f"./Annotations/{wE}.xml",
+            f"../input/test/{wE}.xml",
+        )
+    valid_df.to_csv('../input/test_labels.csv', index=False)
 
 train_valid_split(all_images_folder='../input/images', all_annots_csv='../input/labels/labels.csv', split=0.2)
