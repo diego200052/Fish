@@ -32,7 +32,7 @@ class CustomDataset(Dataset):
         # get all the image paths in sorted order
         for file_type in self.image_file_types:
             self.all_image_paths.extend(glob.glob(f"{self.images_path}/{file_type}"))
-        print(all_image_paths)
+        print(self.all_image_paths)
         self.all_annot_paths = glob.glob(f"{self.labels_path}/*.xml")
         # Remove all annotations and images when no object is present.
         self.read_and_clean()
