@@ -29,9 +29,9 @@ class CustomDataset(Dataset):
         self.image_file_types = ['*.jpg']
         self.all_image_paths = []
         
-        print(f"{self.images_path}/{file_type}")
         # get all the image paths in sorted order
         for file_type in self.image_file_types:
+            print(f"{self.images_path}/{file_type}")
             self.all_image_paths.extend(glob.glob(f"{self.images_path}/{file_type}"))
         print(self.all_image_paths)
         self.all_annot_paths = glob.glob(f"{self.labels_path}/*.xml")
