@@ -30,14 +30,14 @@ args = vars(parser.parse_args())
 np.random.seed(42)
 
 # Create inference result dir if not present.
-os.makedirs(os.path.join('../inference_outputs', 'images'), exist_ok=True)
+os.makedirs(os.path.join('/content/inference_outputs', 'images'), exist_ok=True)
 
 # this will help us create a different color for each class
 COLORS = np.random.uniform(0, 255, size=(len(CLASSES), 3))
 
 # load the best model and trained weights
 model = create_model(num_classes=NUM_CLASSES)
-checkpoint = torch.load('../outputs/last_model.pth', map_location=DEVICE)
+checkpoint = torch.load('/content/outputs/last_model.pth', map_location=DEVICE)
 model.load_state_dict(checkpoint['model_state_dict'])
 model.to(DEVICE).eval()
 
@@ -112,7 +112,7 @@ for i in range(len(test_images)):
 
         #cv2.imshow('Prediction', orig_image)
         #cv2.waitKey(1)
-        cv2.imwrite(f"../inference_outputs/images/{image_name}.jpg", orig_image)
+        cv2.imwrite(f"/content/inference_outputs/images/{image_name}.jpg", orig_image)
     print(f"Image {i+1} done...")
     print('-'*50)
 
