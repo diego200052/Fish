@@ -1,8 +1,8 @@
 import torch
 
-BATCH_SIZE = 16 # increase / decrease according to GPU memeory
-RESIZE_TO = 512 # resize the image for training and transforms
-NUM_EPOCHS = 200 # number of epochs to train for
+BATCH_SIZE = 32 # increase / decrease according to GPU memeory
+RESIZE_TO = 224 # resize the image for training and transforms
+NUM_EPOCHS = 100 # number of epochs to train for
 NUM_WORKERS = 4
 
 DEVICE = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
@@ -16,7 +16,7 @@ VALID_DIR_LABELS = '../input/test'
 # classes: 0 index is reserved for background
 CLASSES = [
     '__background__',
-    'pezGordo', 'pezAmarillo', 'pezFuego', 'pezNaranja', 'pezGuppy', 'pezGato'
+    'Cuezo', 'Guppy', 'Kiros', 'Plano', 'Transparente'
 ]
 
 NUM_CLASSES = len(CLASSES)
