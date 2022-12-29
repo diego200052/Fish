@@ -7,7 +7,7 @@ import argparse
 import pathlib
 import custom_utils
 
-from models.fasterrcnn_mobilenetv3_large_fpn import create_model
+from models.fasterrcnn_mobilenetv3_large_320_fpn import create_model
 from config import (
     NUM_CLASSES, DEVICE, CLASSES
 )
