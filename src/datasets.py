@@ -29,6 +29,7 @@ class CustomDataset(Dataset):
         self.image_file_types = ['*.jpg']
         self.all_image_paths = []
         
+        print(f"{self.images_path}/{file_type}")
         # get all the image paths in sorted order
         for file_type in self.image_file_types:
             self.all_image_paths.extend(glob.glob(f"{self.images_path}/{file_type}"))
