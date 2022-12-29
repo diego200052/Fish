@@ -8,10 +8,10 @@ NUM_WORKERS = 4
 DEVICE = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
   
 # Images and labels direcotry should be relative to train.py
-TRAIN_DIR_IMAGES = '../input/train'
-TRAIN_DIR_LABELS = '../input/train'
-VALID_DIR_IMAGES = '../input/test'
-VALID_DIR_LABELS = '../input/test'
+TRAIN_DIR_IMAGES = '/content/input/train'
+TRAIN_DIR_LABELS = '/content/input/train'
+VALID_DIR_IMAGES = '/content/input/test'
+VALID_DIR_LABELS = '/content/input/test'
 
 # classes: 0 index is reserved for background
 CLASSES = [
@@ -25,4 +25,4 @@ NUM_CLASSES = len(CLASSES)
 VISUALIZE_TRANSFORMED_IMAGES = False
 
 # location to save model and plots
-OUT_DIR = '../outputs'
+OUT_DIR = '/content/outputs'
