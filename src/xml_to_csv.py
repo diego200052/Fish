@@ -28,7 +28,7 @@ def txts_to_csv(LABELS_FILENAMES, CLASSES_DICTIONARY):
     for label_filename in LABELS_FILENAMES:
 
         xml_list = []
-        tree = ET.parse(LABELS_PATH + "ffc2b163-20220718_120713.jpg_224x224.xml")
+        tree = ET.parse(LABELS_PATH + label_filename)
         root = tree.getroot()
         for member in root.findall('object'):
             value = (root.find('filename').text,
